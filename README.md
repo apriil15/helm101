@@ -30,6 +30,18 @@ helm install my-nginx bitnami/nginx
 
 接著到 http://localhost:80/ 就會看到 `Welcome to nginx!` 頁面
 
+也可以用 kubectl 相關 command 看到有 pod 正在運作，service port 為 80
+
+```bash
+❯ kubectl get po
+NAME                        READY   STATUS    RESTARTS   AGE
+my-nginx-7fbbb84565-7wsff   1/1     Running   0          149m
+
+❯ kubectl get service
+NAME         TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+my-nginx     LoadBalancer   10.110.112.117   localhost     80:30010/TCP   150m
+```
+
 --
 
 試著 upgrade
